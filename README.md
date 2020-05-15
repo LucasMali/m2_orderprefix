@@ -3,7 +3,7 @@
 This functionality is based off of wanting the orders to have a custom prefix to easily identify what store the order came from.
 
 ## Attributes
-Alejandro Marroni
+https://github.com/amarroni
 
 ##### NOTE
 This will treat all prefixes in the sales sequence prefix table as one unified value.
