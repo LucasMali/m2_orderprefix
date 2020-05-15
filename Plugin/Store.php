@@ -10,6 +10,10 @@ use Lucas\OrderPrefix\Model\ProfileManager;
  */
 class Store
 {
+    const FORM_SEQUENCE_KEY = 'sales_sequence_profile';
+    const PREFIX = 'prefix';
+    const PROFILE_IDS = 'profile_ids';
+    
     /**
      * @var ProfileManager
      */
@@ -34,12 +38,12 @@ class Store
     public function afterSave(...$args)
     {
         if (
-            array_key_exists('sales_sequence_profile', $_POST)
-            && array_key_exists('prefix', $_POST['sales_sequence_profile'])
-            && array_key_exists('profile_ids', $_POST['sales_sequence_profile'])
+            array_key_exists(self::FORM_SEQUENCE_KEY, $_POST)
+            && array_key_exists(self::PREFIX, $_POST[self::FORM_SEQUENCE_KEY])
+            && array_key_exists(self::PROFILE_IDS, $_POST[self::FORM_SEQUENCE_KEY'])
         ) {
-            $_prefix = $_POST['sales_sequence_profile']['prefix'];
-            $_profileIds = json_decode($_POST['sales_sequence_profile']['profile_ids']);
+            $_prefix = $_POST[self::FORM_SEQUENCE_KEY][self::PREFIX];
+            $_profileIds = json_decode($_POST[self::FORM_SEQUENCE_KEY][self::PROFILE_IDS]);
             $this->profileManager->savePrefixById($_profileIds, $_prefix);
         }
         // TODO add in an exception that will display on the adminhtml.
