@@ -1,0 +1,5 @@
+<config>
+    <type name="Magento\Store\Model\Store">
+        <plugin name="store_save" type="Lucas\OrderPrefix\Plugin\Store" sortOrder="1" disabled="false" />
+    </type>
+</config>

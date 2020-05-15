@@ -1,0 +1,19 @@
+{
+  "name": "lucas/module-orderprefix",
+  "version": "1.0.0",
+  "description": "A simple way to add a custom order prefix.",
+  "type": "magento2-module",
+  "require": {
+    "../../../../vendor/magento/framework": "*",
+    "../../../../vendor/magento/module-store": "101.0.*"
+  },
+  "license": "Apache-2.0",
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Lucas\\OrderPrefix\\": ""
+    }
+  }
+}
