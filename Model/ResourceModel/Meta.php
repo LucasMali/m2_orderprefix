@@ -74,7 +74,6 @@ class Meta extends AbstractDb
      */
     public function loadByStoreId($storeId)
     {
-        $meta = $this->metaFactory->create();
         $connection = $this->getConnection();
         $bind = ['store_id' => $storeId];
         $select = $connection->select()->from(
