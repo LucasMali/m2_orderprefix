@@ -2,6 +2,11 @@
   "name": "lucas/module-orderprefix",
   "version": "1.0.0",
   "description": "A simple way to add a custom order prefix.",
+  "source": {
+    "url": "https://github.com/LucasMali/m2_orderprefix", //git url
+    "type": "git",
+    "reference": "master" //git branch-name
+  },
   "type": "magento2-module",
   "require": {
     "../../../../vendor/magento/framework": "*",
