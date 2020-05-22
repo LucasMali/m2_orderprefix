@@ -1,21 +1,23 @@
 {
-  "name": "lucas/module-orderprefix",
-  "version": "1.0.1",
-  "description": "A simple way to add a custom order prefix.",
-  "source": {
-    "url": "https://github.com/LucasMali/m2_orderprefix",
-    "type": "git",
-    "reference": "master"
-  },
-  "type": "magento2-module",
-  "require": {},
-  "license": "Apache-2.0",
-  "autoload": {
-    "files": [
-      "registration.php"
+    "name": "lucasmali/order_prefix",
+    "type": "magento2-module",
+    "authors": [
+        {
+            "name": "Lucas Maliszewski",
+            "email": "lucascube@gmail.com"
+        }
     ],
-    "psr-4": {
-      "Lucas\\OrderPrefix\\": ""
-    }
-  }
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2.0"
+    },
+    "license": "Apache-2.0",
+    "autoload": {
+        "files": [
+          "registration.php"
+        ],
+        "psr-4": {
+          "Lucas\\OrderPrefix\\": ""
+        }
+      }
 }
