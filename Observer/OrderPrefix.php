@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @since 1.0.0
+ * @author Lucas Maliszewski <lucascube@gmail.com>
+ */
 namespace Lucas\OrderPrefix\Observer;
 
 use Lucas\OrderPrefix\Model\ResourceModel\Meta;

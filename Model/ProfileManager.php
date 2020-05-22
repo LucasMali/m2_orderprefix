@@ -1,13 +1,19 @@
 <?php
-
+/**
+ * @since 1.0.0
+ * @author Lucas Maliszewski <lucascube@gmail.com>
+ */
 namespace Lucas\OrderPrefix\Model;
 
+use Magento\Framework\Exception\AlreadyExistsException;
+use Magento\Framework\Exception\LocalizedException;
 use Magento\SalesSequence\Model\ProfileFactory;
 use Magento\SalesSequence\Model\ResourceModel\Profile as Profile;
 
 /**
  * Class ProfileManager
  * @package Lucas\OrderPrefix\Model
+ * @todo build out an API.
  */
 class ProfileManager
 {
@@ -37,8 +43,8 @@ class ProfileManager
     /**
      * @param $metaIds
      * @param $prefix
-     * @throws \Magento\Framework\Exception\AlreadyExistsException
-     * @throws \Magento\Framework\Exception\LocalizedException
+     * @throws AlreadyExistsException
+     * @throws LocalizedException
      */
     public function savePrefixById($metaIds, $prefix)
     {
