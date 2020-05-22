@@ -8,10 +8,7 @@
     "reference": "master"
   },
   "type": "magento2-module",
-  "require": {
-    "../../../../vendor/magento/framework": "*",
-    "../../../../vendor/magento/module-store": "101.0.*"
-  },
+  "require": {},
   "license": "Apache-2.0",
   "autoload": {
     "files": [
