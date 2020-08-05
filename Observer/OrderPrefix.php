@@ -69,44 +69,47 @@ class OrderPrefix implements ObserverInterface
         $block = $observer->getEvent()->getBlock();
         $store_id = $block->getRequest()->getParam('store_id');
 
-        if ($store_id) {
-            $_prefix = $this->getPrefix($store_id);
-
-            $form = $observer->getEvent()->getBlock()->getForm();
-            $fieldset = $form->getElement('store_fieldset');
-
-            $storeModel = $this->_coreRegistry->registry('store_data');
-            $postData = $this->_coreRegistry->registry('store_post_data');
-            if ($postData) {
-                $storeModel->setData($postData['store']);
-            }
-
-            $fieldset->addField(
-                'prefix',
-                'text',
-                [
-                    'name' => 'sales_sequence_profile[prefix]',
-                    'label' => __('Order Prefix'),
-                    'value' => $_prefix,
-                    'required' => false,
-                    'disabled' => false
-                ],
-                'store_name'
-            );
-            $fieldset->addField(
-                'profile_ids',
-                'hidden',
-                [
-                    'name' => 'sales_sequence_profile[profile_ids]',
-                    'label' => __('ProfileIds'),
-                    'value' => json_encode($this->ids),
-                    'required' => false,
-                    'disabled' => false,
-                    'readonly' => true
-                ],
-                'store_name'
-            );
+        if (!$store_id) {
+            // TODO consider throwing an exception
+            return;
         }
+        
+        $_prefix = $this->getPrefix($store_id);
+
+        $form = $observer->getEvent()->getBlock()->getForm();
+        $fieldset = $form->getElement('store_fieldset');
+
+        $storeModel = $this->_coreRegistry->registry('store_data');
+        $postData = $this->_coreRegistry->registry('store_post_data');
+        if ($postData) {
+            $storeModel->setData($postData['store']);
+        }
+
+        $fieldset->addField(
+            'prefix',
+            'text',
+            [
+                'name' => 'sales_sequence_profile[prefix]',
+                'label' => __('Order Prefix'),
+                'value' => $_prefix,
+                'required' => false,
+                'disabled' => false
+            ],
+            'store_name'
+        );
+        $fieldset->addField(
+            'profile_ids',
+            'hidden',
+            [
+                'name' => 'sales_sequence_profile[profile_ids]',
+                'label' => __('ProfileIds'),
+                'value' => json_encode($this->ids),
+                'required' => false,
+                'disabled' => false,
+                'readonly' => true
+            ],
+            'store_name'
+        );
     }
 
     /*
